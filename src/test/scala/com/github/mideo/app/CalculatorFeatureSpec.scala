@@ -3,6 +3,7 @@ package com.github.mideo.app
 import cucumber.api.Scenario
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.scalatest.Matchers
+import org.scalatra.swagger.Swagger
 import org.scalatra.test.ScalatraTests
 
 class CalculatorFeatureSpec extends ScalaDsl
@@ -31,8 +32,8 @@ class CalculatorFeatureSpec extends ScalaDsl
   Before {
     _: Scenario => bootstrapJetty()
   }
-
-  addServlet(classOf[CalculatorServlet], "/*")
+  implicit val swagger:Swagger = new CalculatorSwagger
+  addServlet(new CalculatorServlet, "/*")
   var leftOperand = ""
   var rightOperand = ""
   var result = ""
