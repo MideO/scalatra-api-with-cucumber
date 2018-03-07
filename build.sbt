@@ -1,3 +1,4 @@
+import scala.language.postfixOps
 import scala.sys.process._
 
 val ScalatraVersion = "2.6.2"
