@@ -34,7 +34,7 @@ CucumberPlugin.envProperties := Map("environment"->"dev")
 CucumberPlugin.monochrome := false
 CucumberPlugin.glue := "com/github/mideo"
 
-unmanagedClasspath in Test += baseDirectory.value / "src" / "features"
+unmanagedClasspath in Test += baseDirectory.value / "features"
 
 
 def before() : Unit = { println("Running Cucumber Tests") }
