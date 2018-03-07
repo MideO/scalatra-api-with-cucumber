@@ -2,7 +2,7 @@ val ScalatraVersion = "2.6.2"
 
 organization := "com.github.mideo"
 
-name := "Scalatra-API-With-Cucumber-API"
+name := "Scalatra-API-With-Cucumber"
 
 version := "0.1.0-SNAPSHOT"
 

@@ -13,13 +13,13 @@ class CalculatorFeatureSpec  extends ScalaDsl
   Before {
     _: Scenario =>
       start()
-      addServlet(classOf[CalculatorServlet], "/*")
+
   }
 
   After() {
     _: Scenario => stop()
   }
-
+  addServlet(classOf[CalculatorServlet], "/*")
   var leftOperand = ""
   var rightOperand = ""
   var result = ""
