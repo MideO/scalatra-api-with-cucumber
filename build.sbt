@@ -1,3 +1,5 @@
+import scala.sys.process._
+
 val ScalatraVersion = "2.6.2"
 
 organization := "com.github.mideo"
@@ -42,3 +44,29 @@ def after() : Unit = { println("Finished Cucumber Tests") }
 
 CucumberPlugin.beforeAll := before
 CucumberPlugin.afterAll := after
+
+
+def executeBashCommand(command: String): Unit = {
+  val exitCode: Int = command !
+
+  if (exitCode != 0) {
+    throw new Exception(s"Failed execution for shell command: `$command`")
+  }
+}
+
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
+
+val packageArtifact = TaskKey[Unit]("awsPackage", "Create Deployable AWS Package")
+
+packageArtifact := {
+  assembly.value
+  val v  = version in ThisBuild
+  executeBashCommand("rm -rf dist")
+  executeBashCommand("mkdir -p dist")
+  executeBashCommand("cp target/scala-2.12/cscalatra-api-with-cucumber*.jar dist/scalatra-api-with-cucumber.jar")
+}
+
