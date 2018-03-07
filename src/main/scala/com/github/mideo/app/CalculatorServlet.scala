@@ -10,5 +10,4 @@ class CalculatorServlet
   get("/:left/add/:right") {
     add(params("left"), params("right"))
   }
-
 }

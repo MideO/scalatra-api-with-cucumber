@@ -5,20 +5,33 @@ import cucumber.api.scala.{EN, ScalaDsl}
 import org.scalatest.Matchers
 import org.scalatra.test.ScalatraTests
 
-class CalculatorFeatureSpec  extends ScalaDsl
+class CalculatorFeatureSpec extends ScalaDsl
   with EN
   with ScalatraTests
   with Matchers {
+  var started = false
+
+  def stopJetty() = stop()
+
+  def bootstrapJetty(): Unit = {
+    if (started) return
+
+    start()
+    Runtime.getRuntime.addShutdownHook(
+      new Thread() {
+        override def run(): Unit = {
+          stopJetty()
+        }
+      }
+    )
+    started = true
+  }
+
 
   Before {
-    _: Scenario =>
-      start()
-
+    _: Scenario => bootstrapJetty()
   }
 
-  After() {
-    _: Scenario => stop()
-  }
   addServlet(classOf[CalculatorServlet], "/*")
   var leftOperand = ""
   var rightOperand = ""
