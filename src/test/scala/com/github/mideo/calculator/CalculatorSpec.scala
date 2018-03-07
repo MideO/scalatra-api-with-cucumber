@@ -6,8 +6,6 @@ import scala.util.Success
 
 class CalculatorSpec extends FunSuite with Matchers {
 
-  private object Calculator extends Addition
-
   test("Calculator should add int") {
     withClue("Failed to add int-like String ") {
       Calculator.add("1", "2") should equal(Success("3"))

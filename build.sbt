@@ -18,8 +18,14 @@ libraryDependencies ++= Seq(
   "org.scalatra" %% "scalatra-scalatest" % ScalatraVersion % "test",
   "ch.qos.logback" % "logback-classic" % "1.2.3" % "runtime",
   "org.eclipse.jetty" % "jetty-webapp" % "9.4.8.v20171121" % "container",
-  "org.scalatra" %% "scalatra-swagger" % ScalatraVersion,
   "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
+
+  // Swagger
+  "org.scalatra" %% "scalatra-swagger" % ScalatraVersion,
+  "org.json4s" %% "json4s-native" % "3.5.3",
+//  "io.swagger" % "swagger-core" % "1.5.0",
+
+// Cucumber
   "io.cucumber" % "cucumber-core" % "2.0.0" % "test",
   "io.cucumber" %% "cucumber-scala" % "2.0.0" % "test",
   "io.cucumber" % "cucumber-jvm" % "2.0.0" % "test",
@@ -32,7 +38,7 @@ enablePlugins(ScalatraPlugin)
 enablePlugins(CucumberPlugin)
 
 
-CucumberPlugin.envProperties := Map("environment"->"dev")
+CucumberPlugin.envProperties := Map("environment" -> "dev")
 
 CucumberPlugin.monochrome := false
 CucumberPlugin.glue := "com/github/mideo"
@@ -40,8 +46,12 @@ CucumberPlugin.glue := "com/github/mideo"
 unmanagedClasspath in Test += baseDirectory.value / "features"
 
 
-def before() : Unit = { println("Running Cucumber Tests") }
-def after() : Unit = { println("Finished Cucumber Tests") }
+def before(): Unit = {
+  println("Running Cucumber Tests")
+}
+def after(): Unit = {
+  println("Finished Cucumber Tests")
+}
 
 CucumberPlugin.beforeAll := before
 CucumberPlugin.afterAll := after
@@ -57,7 +67,7 @@ def executeBashCommand(command: String): Unit = {
 
 
 assemblyMergeStrategy in assembly := {
-  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case PathList("META-INF", xs@_*) => MergeStrategy.discard
   case x => MergeStrategy.first
 }
 
@@ -65,7 +75,7 @@ val packageArtifact = TaskKey[Unit]("awsPackage", "Create Deployable AWS Package
 
 packageArtifact := {
   assembly.value
-  val v  = version in ThisBuild
+  val v = version in ThisBuild
   executeBashCommand("rm -rf dist")
   executeBashCommand("mkdir -p dist")
   executeBashCommand("cp target/scala-2.12/cscalatra-api-with-cucumber*.jar dist/scalatra-api-with-cucumber.jar")

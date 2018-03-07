@@ -3,7 +3,7 @@ package com.github.mideo
 
 package object calculator {
 
-  trait Calculator
+  object Calculator
     extends Calculation
       with Addition
 
