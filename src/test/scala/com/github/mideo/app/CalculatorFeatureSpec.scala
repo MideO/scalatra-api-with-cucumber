@@ -32,6 +32,7 @@ class CalculatorFeatureSpec extends ScalaDsl
   Before {
     _: Scenario => bootstrapJetty()
   }
+
   implicit val swagger:Swagger = new CalculatorSwagger
   addServlet(new CalculatorServlet, "/*")
   var leftOperand = ""

@@ -10,6 +10,8 @@ class CalculatorServlet(implicit val swagger: Swagger)
   extends ScalatraServlet
     with SwaggerSupport {
 
+  override protected def applicationDescription: String = CalculatorSwagger.Info.description
+
   val add: SwaggerSupportSyntax.OperationBuilder = (
     apiOperation[String]("add")
       summary "adds two numbers"
@@ -25,6 +27,4 @@ class CalculatorServlet(implicit val swagger: Swagger)
     }
   }
 
-
-  override protected def applicationDescription: String = CalculatorSwagger.Info.description
 }

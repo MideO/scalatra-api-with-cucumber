@@ -4,7 +4,7 @@ import org.scalatest.{FunSuite, Matchers}
 
 import scala.util.Success
 
-class CalculatorSpec extends FunSuite with Matchers {
+class CalculatorAdditionSpec extends FunSuite with Matchers {
 
   test("Calculator should add int") {
     withClue("Failed to add int-like String ") {
