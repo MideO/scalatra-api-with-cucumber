@@ -36,4 +36,5 @@ class CalculatorFeatureSpec extends ScalaDsl
   var leftOperand = ""
   var rightOperand = ""
   var result = ""
+  var statusCode = 0
 }

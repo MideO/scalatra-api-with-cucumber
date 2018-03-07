@@ -10,15 +10,19 @@ class AdditionSteps extends CalculatorFeatureSpec {
     }
   }
 
-  When("""^I add both operands$""") {
-    () =>
-      get(s"$leftOperand/add/$rightOperand") {
-        status should equal(200)
+  When("""^I ([^"]*) both operands$""") {
+    (op:String) =>
+      get(s"$leftOperand/$op/$rightOperand") {
+        this.statusCode = status
         this.result = body
       }
   }
 
-  Then("""^I expect the result to be "([^"]*)"$""") { (result: String) =>
+  Then("""^I expect the api response to be (\d+)$"""){ (code:Int) =>
+    this.statusCode should equal(code)
+  }
+
+  And("""^I expect the result to be "([^"]*)"$""") { (result: String) =>
     this.result should equal(result)
   }
 }
