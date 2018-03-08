@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/MideO/scalatra-api-with-cucumber.svg?branch=master)](https://travis-ci.org/MideO/scalatra-api-with-cucumber)
 
-### Build & Run ##
+### Build & Run 
 
 ```sh
 $ cd Scalatra_Cucumber_API

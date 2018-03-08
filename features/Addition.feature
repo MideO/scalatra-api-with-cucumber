@@ -1,6 +1,6 @@
-Feature: Addition
-  In order to add numbers
-  As a users
+Feature: Addition API
+  In order to add two  numbers
+  As a frontend client
   I want a calculator api
 
   Scenario: Add integer two number
