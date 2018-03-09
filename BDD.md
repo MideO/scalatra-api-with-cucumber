@@ -54,9 +54,9 @@ Feature List:
    - Division
    
 
-Feature: Multiplication API 
-  In order to multiply two numbers 
-  As a frontend client 
+Feature: Multiplication API  
+  In order to multiply two numbers  
+  As a frontend client  
   I want a calculator api 
 
 
