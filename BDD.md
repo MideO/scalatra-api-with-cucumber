@@ -22,9 +22,10 @@ A development process that is a repetition of a very short development cycles, b
    * Not slow    
 
 #### Behaviour Driven Development (BDD)
-An attempt to unify satisfying function/non-functional requirements and application development and testing.
-A practices derived from Test Driven Development (TDD) and Acceptance Test Driven Development (ATDD).
-A process for describing an application/program specification by examples, usually characterised by four main keywords
+An attempt to unify satisfying function/non-functional requirements and application development and testing.  
+It is a practice derived from Test Driven Development (TDD) and Acceptance Test Driven Development (ATDD).   
+It is a process for describing an application/program specification by examples, usually characterised by four main keywords
+
 ```
 * Given - Description of a state
 * When - Description of an action
@@ -38,7 +39,6 @@ A process for describing an application/program specification by examples, usual
   
 ##### Why BDD:
   * Its written in a language that is understood by everyone
-  * Its a Collaborative process 
   * Its usually short and concise
   * It's a good entry point for TDD (a failing test can easily be created in the `Red => Green => Yellow` Cycle )
  
@@ -50,7 +50,7 @@ A calculator to perform mathematical operations
 
 Feature List: 
    - Addition - Done
-   - Multiplication  
+   - Multiplication - Done  
    - Subtraction
    - Division
    
@@ -60,4 +60,3 @@ Feature: Multiplication API
   As a frontend client  
   I want a calculator api 
 ```
-
