@@ -27,4 +27,18 @@ class CalculatorServlet(implicit val swagger: Swagger)
     }
   }
 
+
+  val multiply: SwaggerSupportSyntax.OperationBuilder = (
+    apiOperation[String]("multiply")
+      summary "multiply two numbers"
+      tags "multiply"
+      parameters(pathParam[String]("left").description("left operand"), pathParam[String]("right").description("right operand"))
+      responseMessage ResponseMessage(400, "Unsupported arguments both arguments must be Integer like String or Decimal like String")
+    )
+  get("/:left/multiply/:right", operation(multiply)) {
+    Calculator.multiply(params("left") ,params("right")) match {
+      case Success(s) => s
+      case Failure(f) => halt(400, f.getMessage)
+    }
+  }
 }
