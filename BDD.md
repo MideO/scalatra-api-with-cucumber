@@ -5,7 +5,7 @@
     * [BDD is](#bdd-is)
     * [Why BDD](#why-bdd)
  * [Live Coding Example](#live-coding-example)
-    * [Requirement](#requirement)
+    * [Requirement](#example-requirement)
 
 #### Test Driven Development (TDD)
 A development process that is a repetition of a very short development cycles, broken down into three stages.
@@ -44,7 +44,7 @@ A process for describing an application/program specification by examples, usual
     
 #### Live Coding Example
  
-##### Requirement: 
+##### Example Requirement: 
 A calculator to perform mathematical operations
 
 Feature List: 
