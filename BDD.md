@@ -33,7 +33,7 @@ A process for describing an application/program specification by examples, usual
 ```
 
 ##### BDD is:
-  * Not test
+  * Not testing
   * a collaborative process
   
 ##### Why BDD:
