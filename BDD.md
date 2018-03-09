@@ -1,11 +1,11 @@
 #### Table Of Content
  * [Test Driven Development (TDD)](#test-driven-development-tdd)
-    * [TDD is](#tdd-is:)
+    * [TDD is](#tdd-is)
  * [Behaviour Driven Development (BDD)](#behaviour-driven-development-bdd)
-    * [BDD is](#bdd-is:)
-    * [Why BDD](#why-bdd:)
+    * [BDD is](#bdd-is)
+    * [Why BDD](#why-bdd)
  * [Live Coding Example](#live-coding-example)
-    * [Requirement](#requirement:)
+    * [Requirement](#requirement)
 
 #### Test Driven Development (TDD)
 A development process that is a repetition of a very short development cycles, broken down into three stages.
@@ -54,9 +54,9 @@ Feature List:
    - Division
    
 
-Feature: Multiplication API
-  In order to multiply two numbers
-  As a frontend client
-  I want a calculator api
+Feature: Multiplication API 
+  In order to multiply two numbers 
+  As a frontend client 
+  I want a calculator api 
 
 
